@@ -2,7 +2,7 @@ import 'package:chat_app/home/home_screen.dart';
 import 'package:chat_app/screens/firebase_options.dart';
 import 'package:chat_app/screens/loginPage.dart';
 import 'package:chat_app/screens/registerPage.dart';
-import 'package:chat_app/screens/welcomeScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,21 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const WelcomScreen(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.white,
+            ));
+          } else if (snapshot.hasData) {
+            return const HomeScreen();
+          } else {
+            return const LoginPage();
+          }
+        },
+      ),
       debugShowCheckedModeBanner: false,
       routes: {
         'login': (context) => const LoginPage(),

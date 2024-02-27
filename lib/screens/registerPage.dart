@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:chat_app/firebase/RegFunction.dart';
 import 'package:chat_app/models/text_form_field.dart';
 import 'package:chat_app/models/text_model.dart';
 import 'package:chat_app/models/textbutton.dart';
@@ -99,13 +98,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     ));
                     // ignore: use_build_context_synchronously
                     Navigator.pushNamed(context, 'login');
-                  } on FirebaseAuthException catch (e) {
+                  } on FirebaseAuthException {
                     // ignore: use_build_context_synchronously
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          '$e',
-                        ),
+                      const SnackBar(
+                        content: Text('check your email an password'),
                       ),
                     );
                   } catch (e) {
@@ -116,6 +113,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     );
                   }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("password isn't identical"),
+                    ),
+                  );
                 }
               },
             ),
