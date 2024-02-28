@@ -1,3 +1,4 @@
+import 'package:chat_app/home/chats/chats_page.dart';
 import 'package:chat_app/home/test.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        drawer: const Drawer(),
         appBar: AppBar(
           title: const Text(
             'Messenger',
@@ -47,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: const TabBarView(
           children: [
-            Test(txt: 'Merhapa'),
+            ChatScreen(),
             Test(txt: 'Hello world'),
             Test(txt: 'Merhapa++'),
           ],
