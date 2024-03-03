@@ -1,3 +1,4 @@
+import 'package:chat_app/home/chats/chat_page_with_persons.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -14,11 +15,14 @@ class _ChatScreenState extends State<ChatScreen> {
       body: ListView(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ChatPage()));
+            },
             child: Card(
               margin: const EdgeInsets.all(4),
               child: ListTile(
-                leading: Container(
+                leading: SizedBox(
                   height: 50,
                   width: 50,
                   child: ClipRRect(
@@ -45,18 +49,15 @@ class _ChatScreenState extends State<ChatScreen> {
                 trailing: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: const Text(
-                        '3',
-                        style: TextStyle(color: Colors.white),
+                    Badge(
+                      label: const Text('4'),
+                      backgroundColor: Colors.green,
+                      child: InkWell(
+                        onTap: () {},
+                        child: const Icon(Icons.message),
                       ),
                     ),
-                    const Text('12:30 am')
+                    const Text('12:30 am'),
                   ],
                 ),
               ),

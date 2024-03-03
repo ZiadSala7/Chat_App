@@ -17,6 +17,14 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         drawer: const Drawer(),
         appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ))
+          ],
           title: const Text(
             'Messenger',
             style: TextStyle(color: Colors.white),
