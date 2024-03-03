@@ -38,14 +38,14 @@ class _ChatPageState extends State<ChatPage> {
             const Text(
               "Ziad Salah",
               style: TextStyle(
-                color: Colors.white,
+                color: Color.fromARGB(255, 254, 254, 254),
                 fontSize: 16,
               ),
             ),
           ],
         ),
+        backgroundColor: const Color.fromARGB(255, 37, 37, 37),
         centerTitle: true,
-        backgroundColor: const Color(0xff21323A),
       ),
       body: Column(
         children: [

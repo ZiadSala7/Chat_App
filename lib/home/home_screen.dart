@@ -1,4 +1,5 @@
-import 'package:chat_app/home/chats/chats_page.dart';
+import 'package:chat_app/home/chats/chats_view.dart';
+import 'package:chat_app/home/chats/drawer_desigon.dart';
 import 'package:chat_app/home/test.dart';
 import 'package:flutter/material.dart';
 
@@ -15,24 +16,25 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        drawer: const Drawer(),
+        drawer: const Drawer(
+          child: DrawerModel(),
+        ),
         appBar: AppBar(
           actions: [
             IconButton(
                 onPressed: () {},
                 icon: const Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ))
           ],
           title: const Text(
             'Messenger',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Color.fromARGB(255, 17, 46, 58)),
           ),
-          backgroundColor: const Color(0xff21323A),
           bottom: const TabBar(
             unselectedLabelStyle: TextStyle(
-              color: Colors.white,
+              color: Color.fromARGB(255, 18, 17, 17),
             ),
             labelStyle: TextStyle(color: Colors.green),
             indicatorColor: Color.fromRGBO(141, 242, 153, 1),
@@ -54,6 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
         ),
         body: const TabBarView(
           children: [

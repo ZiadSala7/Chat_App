@@ -16,7 +16,6 @@ void main() async {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -26,21 +25,25 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-                child: CircularProgressIndicator(
-              color: Colors.white,
-            ));
-          } else if (snapshot.hasData) {
-            return const HomeScreen();
-          } else {
-            return const LoginPage();
-          }
-        },
-      ),
+      // home: StreamBuilder(
+      //   stream: FirebaseAuth.instance.authStateChanges(),
+      //   builder: (context, snapshot) {
+      //     if (snapshot.connectionState == ConnectionState.waiting) {
+      //       return const Center(
+      //           child: CircularProgressIndicator(
+      //         color: Colors.white,
+      //       ));
+      //     } else if (snapshot.hasData) {
+      //       return const HomeScreen();
+      //     } else {
+      //       return const LoginPage();
+      //     }
+      //   },
+      // ),
+      home: FirebaseAuth.instance.currentUser != null
+          ? const HomeScreen()
+          : const LoginPage(),
+      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       routes: {
         'login': (context) => const LoginPage(),
