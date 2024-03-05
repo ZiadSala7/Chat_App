@@ -25,24 +25,21 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: StreamBuilder(
-      //   stream: FirebaseAuth.instance.authStateChanges(),
-      //   builder: (context, snapshot) {
-      //     if (snapshot.connectionState == ConnectionState.waiting) {
-      //       return const Center(
-      //           child: CircularProgressIndicator(
-      //         color: Colors.white,
-      //       ));
-      //     } else if (snapshot.hasData) {
-      //       return const HomeScreen();
-      //     } else {
-      //       return const LoginPage();
-      //     }
-      //   },
-      // ),
-      home: FirebaseAuth.instance.currentUser != null
-          ? const HomeScreen()
-          : const LoginPage(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.white,
+            ));
+          } else if (snapshot.hasData) {
+            return const HomeScreen();
+          } else {
+            return const LoginPage();
+          }
+        },
+      ),
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       routes: {

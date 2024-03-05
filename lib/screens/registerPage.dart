@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 
+import 'package:chat_app/firebase/register_function.dart';
 import 'package:chat_app/models/text_form_field.dart';
 import 'package:chat_app/models/text_model.dart';
 import 'package:chat_app/models/textbutton.dart';
 import 'package:chat_app/screens/loginPage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -85,34 +85,12 @@ class _RegisterPageState extends State<RegisterPage> {
               color: const Color.fromARGB(255, 102, 163, 221),
               OnPressed: () async {
                 if (password == confirmPassword) {
-                  try {
-                    // ignore: unused_local_variable
-                    UserCredential user = await FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
-                      email: email,
-                      password: password,
-                    );
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text('Successful Register'),
-                    ));
-                    // ignore: use_build_context_synchronously
-                    Navigator.pushNamed(context, 'login');
-                  } on FirebaseAuthException {
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('check your email an password'),
-                      ),
-                    );
-                  } catch (e) {
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('$e'),
-                      ),
-                    );
-                  }
+                  Map<String, dynamic> mp = {
+                    'email': email,
+                    'password': password,
+                    'name': name,
+                  };
+                  registerWithFirebase(email, password, context, mp);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(

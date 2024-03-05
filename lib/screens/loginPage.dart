@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:chat_app/firebase/login_function.dart';
 import 'package:chat_app/models/text_form_field.dart';
 import 'package:chat_app/models/text_model.dart';
 import 'package:chat_app/models/textbutton.dart';
@@ -86,31 +87,9 @@ class _LoginPageState extends State<LoginPage> {
                     color: const Color.fromARGB(255, 102, 163, 221),
                     OnPressed: () async {
                       // firebase code for login
-                      try {
-                        FirebaseAuth auth = FirebaseAuth.instance;
-                        // ignore: unused_local_variable
-                        UserCredential user =
-                            await auth.signInWithEmailAndPassword(
-                          email: email,
-                          password: password,
-                        );
-                        // ignore: use_build_context_synchronously
-                        Navigator.pushNamed(context, 'home');
-                      } on FirebaseAuthException catch (e) {
-                        // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('$e'),
-                          ),
-                        );
-                      } catch (e) {
-                        // ignore: use_build_context_synchronously
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('$e'),
-                          ),
-                        );
-                      }
+                      setState(() {
+                        loginWithFirebase(email, password, context);
+                      });
                     }),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -6,8 +6,7 @@ class TextFormFieldModel extends StatelessWidget {
   final IconButton? suffixicon;
   // ignore: non_constant_identifier_names
   final Function(String) OnChange;
-  var txtcontroller = TextEditingController();
-  TextFormFieldModel({
+  const TextFormFieldModel({
     super.key,
     this.suffixicon,
     required this.secure,
@@ -17,9 +16,7 @@ class TextFormFieldModel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     return Form(
-      key: formKey,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: TextFormField(
