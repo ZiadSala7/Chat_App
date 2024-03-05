@@ -12,13 +12,16 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.more_vert_rounded,
-            color: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 51, 90, 118),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.more_vert_rounded,
+              color: Colors.white,
+            ),
           ),
-        ),
+        ],
         title: Row(
           children: [
             SizedBox(
@@ -44,7 +47,6 @@ class _ChatPageState extends State<ChatPage> {
             ),
           ],
         ),
-        backgroundColor: const Color.fromARGB(255, 37, 37, 37),
         centerTitle: true,
       ),
       body: Column(

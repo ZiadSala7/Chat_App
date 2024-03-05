@@ -16,21 +16,21 @@ loginWithFirebase(email, password, context) async {
     );
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
-      awesomeDialogModel(
+      await awesomeDialogModel(
         context,
         DialogType.error,
         'User not found',
         'There is no account for this email, register first',
       );
     } else if (e.code == 'wrong-password') {
-      awesomeDialogModel(
+      await awesomeDialogModel(
         context,
         DialogType.error,
         'Wrong password',
         'password not correct, try again ...',
       );
     } else {
-      awesomeDialogModel(
+      await awesomeDialogModel(
         context,
         DialogType.error,
         'Error',
@@ -38,7 +38,7 @@ loginWithFirebase(email, password, context) async {
       );
     }
   } catch (e) {
-    awesomeDialogModel(
+    await awesomeDialogModel(
       context,
       DialogType.error,
       'Error',

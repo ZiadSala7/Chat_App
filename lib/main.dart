@@ -40,7 +40,14 @@ class _MyAppState extends State<MyApp> {
           }
         },
       ),
-      theme: ThemeData.light(),
+      theme: ThemeData.light().copyWith(
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        iconButtonTheme: const IconButtonThemeData(
+            style:
+                ButtonStyle(iconColor: MaterialStatePropertyAll(Colors.white))),
+      ),
       debugShowCheckedModeBanner: false,
       routes: {
         'login': (context) => const LoginPage(),

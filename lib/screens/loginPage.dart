@@ -5,7 +5,6 @@ import 'package:chat_app/models/text_form_field.dart';
 import 'package:chat_app/models/text_model.dart';
 import 'package:chat_app/models/textbutton.dart';
 import 'package:chat_app/screens/registerPage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {

@@ -20,12 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
           child: DrawerModel(),
         ),
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 51, 90, 118),
           actions: [
             IconButton(
                 onPressed: () {},
                 icon: const Icon(
                   Icons.search,
-                  color: Color.fromARGB(255, 0, 0, 0),
                 ))
           ],
           title: const Text(
@@ -35,9 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
           bottom: const TabBar(
             unselectedLabelStyle: TextStyle(
               color: Color.fromARGB(255, 18, 17, 17),
+              fontSize: 16,
             ),
-            labelStyle: TextStyle(color: Colors.green),
-            indicatorColor: Color.fromRGBO(141, 242, 153, 1),
+            labelStyle: TextStyle(
+              color: Color.fromARGB(255, 252, 252, 252),
+              fontSize: 18,
+            ),
+            indicatorColor: Color.fromRGBO(103, 208, 166, 1),
             tabs: [
               Tab(
                 child: Text(

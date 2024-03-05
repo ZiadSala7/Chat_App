@@ -12,6 +12,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.all(4),
         height: double.infinity,
@@ -21,7 +22,6 @@ class _ChatScreenState extends State<ChatScreen> {
             topRight: Radius.circular(20),
             topLeft: Radius.circular(20),
           ),
-          color: Colors.white,
         ),
         child: ListView(
           children: [
