@@ -1,4 +1,6 @@
-import 'package:chat_app/models/chat_ui_design.dart';
+import 'package:chat_app/home/chats/messages.dart';
+import 'package:chat_app/models/reciever.dart';
+import 'package:chat_app/models/sender.dart';
 import 'package:flutter/material.dart';
 
 class ChatDesign extends StatefulWidget {
@@ -11,7 +13,7 @@ class ChatDesign extends StatefulWidget {
 class _ChatDesignState extends State<ChatDesign> {
   // ignore: non_constant_identifier_names
   final chat_controller = TextEditingController();
-  List<String> msgs = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,8 +22,15 @@ class _ChatDesignState extends State<ChatDesign> {
           child: ListView.builder(
               itemCount: msgs.length,
               itemBuilder: (context, indx) {
-                return CustomChatDesign(
-                  txt: msgs[indx],
+                return Column(
+                  children: [
+                    CustomChatDesignSender(
+                      txt: msgs[indx],
+                    ),
+                    CustomChatDesignReciever(
+                      txt: msgs[indx],
+                    ),
+                  ],
                 );
               }),
         ),
