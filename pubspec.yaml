@@ -37,6 +37,8 @@ dependencies:
   firebase_core: ^2.25.4
   flutter:
     sdk: flutter
+  flutter_chat_bubble: ^2.0.2
+  flutter_chat_ui: ^1.6.12
   google_sign_in: ^6.2.1
 
 dev_dependencies:

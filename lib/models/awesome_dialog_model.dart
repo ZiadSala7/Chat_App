@@ -2,7 +2,11 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
 awesomeDialogModel(
-    context, DialogType dialogType, String title, String desc) async {
+  BuildContext context,
+  DialogType dialogType,
+  String title,
+  String desc,
+) {
   AwesomeDialog(
     context: context,
     dialogType: dialogType,
@@ -10,8 +14,5 @@ awesomeDialogModel(
     title: title,
     desc: desc,
     transitionAnimationDuration: const Duration(seconds: 2),
-    btnOkOnPress: () {
-      Navigator.pop(context);
-    },
   ).show();
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+import 'package:chat_app/home/chats/chat_design.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
@@ -8,6 +10,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  // ignore: non_constant_identifier_names
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,28 +52,7 @@ class _ChatPageState extends State<ChatPage> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          const Expanded(
-            child: Text(''),
-          ),
-          TextField(
-            decoration: InputDecoration(
-                hintText: ' Write message ...',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(60),
-                ),
-                prefixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.photo),
-                ),
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.send),
-                )),
-          ),
-        ],
-      ),
+      body: const ChatDesign(),
     );
   }
 }

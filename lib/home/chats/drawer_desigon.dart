@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:chat_app/models/awesome_dialog_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +40,14 @@ class _DrawerModelState extends State<DrawerModel> {
         ListTile(
             title: const Text("My Profile"),
             leading: const Icon(Icons.person),
-            onTap: () {}),
+            onTap: () {
+              awesomeDialogModel(
+                context,
+                DialogType.success,
+                'Successful login',
+                'Welcome ...',
+              );
+            }),
         ListTile(
             title: const Text("About"),
             leading: const Icon(Icons.help_center),
