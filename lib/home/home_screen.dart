@@ -1,6 +1,7 @@
 import 'package:chat_app/home/chats/chats_view.dart';
 import 'package:chat_app/home/chats/drawer_desigon.dart';
 import 'package:chat_app/home/test.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: const Color.fromARGB(255, 51, 90, 118),
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  // FirebaseAuth.instance.signOut();
+                },
                 icon: const Icon(
                   Icons.search,
                 ))

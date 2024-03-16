@@ -3,7 +3,7 @@ import 'package:chat_app/firebase/add_user_data.dart';
 import 'package:chat_app/models/awesome_dialog_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-registerWithFirebase(email, password, context, mp) async {
+registerWithFirebase(email, password, context, name) async {
   try {
     final credential =
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -16,26 +16,26 @@ registerWithFirebase(email, password, context, mp) async {
       'Successful Registering',
       'You have just created an account .. ',
     );
-    addUserData(context, mp, credential.user?.uid);
+    addUserData(context, name, email, password, credential.user!.uid);
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
       awesomeDialogModel(
         context,
-        DialogType.success,
+        DialogType.error,
         'Weak password',
         'try to make a strong one',
       );
     } else if (e.code == 'email-already-in-use') {
       awesomeDialogModel(
         context,
-        DialogType.success,
+        DialogType.error,
         'Email in use',
         'email already in use, try another one',
       );
     } else {
       awesomeDialogModel(
         context,
-        DialogType.success,
+        DialogType.error,
         'Error',
         e.code,
       );
@@ -43,7 +43,7 @@ registerWithFirebase(email, password, context, mp) async {
   } catch (e) {
     awesomeDialogModel(
       context,
-      DialogType.success,
+      DialogType.error,
       'Error',
       e.toString(),
     );

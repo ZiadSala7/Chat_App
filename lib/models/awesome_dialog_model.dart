@@ -13,6 +13,6 @@ awesomeDialogModel(
     animType: AnimType.topSlide,
     title: title,
     desc: desc,
-    transitionAnimationDuration: const Duration(seconds: 2),
+    transitionAnimationDuration: const Duration(seconds: 1),
   ).show();
 }
